@@ -20,18 +20,16 @@ import { addToCart } from "../actions/cartActions";
 import { disable } from "colors";
 
 const CartScreen = () => {
-  const { productID } = useParams();
-  console.log(productID);
+  const { id } = useParams();
   const [qtyString] = useSearchParams();
   const qty = Number(qtyString.toString().split("=")[1]);
-  console.log(qtyString);
 
   const dispatch = useDispatch();
   useEffect(() => {
-    if (productID) {
-      dispatch(addToCart(productID, qty));
+    if (id) {
+      dispatch(addToCart(id, qty));
     }
-  }, [dispatch, productID, qty]);
+  }, [dispatch, id, qty]);
   return <div>CartScreen</div>;
 };
 
